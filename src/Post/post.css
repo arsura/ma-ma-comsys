@@ -189,7 +189,34 @@ textarea::-webkit-input-placeholder {
     outline: none;
 }
 
-.entry-act button {
+.entry-act .to-poll {
+    width: 60%;
+    height: 45px;
+    background: transparent;
+    box-sizing: border-box;
+    border-radius: 0px;
+    border: 0;
+    border-bottom: 0px solid black;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
+    outline: none;
+    cursor: pointer;
+    margin-bottom: 1em;
+    font-weight: 300;
+    font-family: 'Kanit', sans-serif;
+    -webkit-transition-duration: 0.9s;
+}
+
+.entry-act .to-poll:hover {
+    color: #fff;
+    background: #005e94;
+    border-radius: 5px;
+    border: 0 solid black;
+
+}
+
+.entry-act button:not(.to-poll) {
     width: 60%;
     height: 45px;
     background: #005e94;
@@ -198,7 +225,14 @@ textarea::-webkit-input-placeholder {
     border: 1px solid #0075b9;
     color: #fff;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
+    font-weight: 300;
     outline: none;
     cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+}
+
+.entry-act button:not(.to-poll):hover {
+    background: #0075b9;
+
 }

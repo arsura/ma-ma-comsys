@@ -55,14 +55,14 @@ class Login extends React.Component {
         var username = this.state.username;
         var password = this.state.password;
         if (username === 'siwakorn' && password === '123456') {
-            console.log('Login Complete');
+            //console.log('Login Complete');
             fakeAuth.userName = this.state.username;
             fakeAuth.authenticate(() => {
                 this.setState({ redirectToReferrer: true });
             });
         }
         else {
-            console.log('Invalid Username or Password')
+            //console.log('Invalid Username or Password')
             this.setState({
                 isInvalid: true,
             })
@@ -79,7 +79,7 @@ class Login extends React.Component {
 
         const { redirectToReferrer } = this.state;
         if (redirectToReferrer) {
-            console.log(this.state)
+            //console.log(this.state)
             return <Redirect to={'/'} />;
         }
 

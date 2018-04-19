@@ -18,9 +18,6 @@ const NavBar = () => {
                         <Link to="/">หน้าหลัก</Link>
                     </li>
                     <li>
-                        <Link to="/poll">โพล</Link>
-                    </li>
-                    <li>
                         <Link className='login-link' to='/logout'>ออกจากระบบ</Link>
                     </li>
                     <li>
@@ -35,9 +32,6 @@ const NavBar = () => {
                 <ul>
                     <li>
                         <Link to="/">หน้าหลัก</Link>
-                    </li>
-                    <li>
-                        <Link to="/poll">โพล</Link>
                     </li>
                     <li>
                         <Link className='login-link' to='/login'>เข้าสู่ระบบ</Link>

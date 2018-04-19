@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { fakeAuth } from '../Login/login';
+import Poll from '../Poll/poll';
 import './post.css';
 
 const Post = ({ match }) => (
@@ -17,6 +18,7 @@ const Post = ({ match }) => (
             ประเด็นต่อมาการที่มีการบังคับทรงผมนักเรียนนั้น เป็นอีกเหตุหนึ่งปัจจัย ที่ทำให้ครู หรือ ผู้ใหญ่ที่ไม่สามารถควบคุมสภาวะอารมณ์ของตัวเอง ได้กระทำในสิ่งที่ไม่ถูกต้องกับนักเรียน ถ้าหากยกเลิกข้อบังคับเรื่องทรงผมนักเรียนได้ ก็จะลดปัญหาการใช้อำนาจโดยมิชอบจากผู้ใหญ่ และ นักเรียนมีสภาวะจิตใจที่ดีมากขึ้นต่อการไปโรงเรียน โดยผมมองว่าสถานศึกษาควรเป็นสถานที่มุ่งเน้นพัฒนาคุณภาพการศึกษา และ พัฒนาจิตใจ ของผู้เรียน
         </p>
         <EntryActivity />
+        <CreatePoll />
         <div className='create-by'>สร้างโดย
             <Link to={`/profile/${'siwakorn'}`}><i> Siwakorn Ruenrit  </i></Link>
             {new Date().toLocaleString()}
@@ -48,12 +50,19 @@ class EntryActivity extends React.Component {
             entryComplete: false,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.toPollPage = this.toPollPage.bind(this);
     }
 
     handleSubmit() {
         this.setState({
             entryCount: this.state.entryCount + 1,
             entryComplete: true,
+        })
+    }
+
+    toPollPage() {
+        this.setState({
+            createPoll: true,
         })
     }
 
@@ -71,13 +80,16 @@ class EntryActivity extends React.Component {
                 </div>
             )
 
+
         return (
             <div className='entry-act'>
                 {
                     this.state.entryComplete ?
                         (
+                            <div>
                             <h3>ตอนนี้มีผู้เข้าร่วมกิจกรรมแล้ว {this.state.entryCount} คน <br />
                                 <i>และคุณเข้าร่วมกับกิจกรรมนี้เรียบร้อยแล้ว</i></h3>
+                            </div>
                         ) :
                         (
                             <div>
@@ -90,6 +102,16 @@ class EntryActivity extends React.Component {
                         )
                 }
 
+            </div>
+        );
+    }
+}
+
+class CreatePoll extends React.Component {
+    render() {
+        return (
+            <div className='create-poll'>
+                <button>สร้างโพลสำหรับกิจกรรมนี้</button>
             </div>
         );
     }
@@ -193,5 +215,28 @@ class Comment extends React.Component {
     }
 }
 
+class CallFromCreatePost extends React.Component {
+    render() {
+        return (
+            <div className='post-container'>
+                <div className='title'>
+                    <h1>{this.props.postTitle}</h1>
+                </div>
+                <img className='post-image' src={this.props.imageURL} alt='' />
+                <p>
+                    {this.props.postContent}
+                </p>
+                <EntryActivity />
+                <div className='create-by'>สร้างโดย
+                <Link to={`/profile/${'siwakorn'}`}><i> Siwakorn Ruenrit  </i></Link>
+                    {new Date().toLocaleString()}
+                </div>
+                <br />
+                <SocialNetwork />
+                <Comment />
+            </div>
+        );
+    }
+}
 
-export default Post;
+export { Post, CallFromCreatePost };

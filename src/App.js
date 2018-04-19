@@ -4,7 +4,7 @@ import { Login, Logout } from './Login/login';
 import Home from './Home/home';
 import NavBar from './NavBar/navbar'
 import Profile from './Profile/profile';
-import Post from './Post/post';
+import { Post } from './Post/post';
 import SignUp from './Signup/signup';
 import Poll from './Poll/poll';
 import CreatePost from './CreatePost/createpost';
@@ -21,7 +21,7 @@ class App extends Component {
           <Route path='/profile/:id' component={Profile} />
           <Route path='/post/:id' component={Post} />
           <Route path='/signup' component={SignUp} />
-          <Route path='/poll' component={Poll} />
+          <Route path='/poll:id' component={Poll} />
           <Route path='/createpost' component={CreatePost} />
         </div>
       </Router>

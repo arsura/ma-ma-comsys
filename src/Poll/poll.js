@@ -96,7 +96,7 @@ class Poll extends React.Component {
                                 <div key={index + value}>
                                     {value}
                                     <div className='poll-score'>
-                                        {this.state.choiceCount[index]} คนเห็นด้วย
+                                        {this.state.choiceCount[index]} ที่คนเห็นด้วย
                                     </div>
                                 </div>
                             );

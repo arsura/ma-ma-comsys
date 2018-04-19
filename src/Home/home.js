@@ -6,6 +6,7 @@ import './home.css';
 class Home extends Component {
 
     render() {
+
         const hello = fakeAuth.isAuthenticated ?
             (
                 <div className='authen-complete'>
