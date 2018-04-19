@@ -1,0 +1,49 @@
+.nav-bar {
+    background: #333;
+}
+
+.nav-bar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 800px;
+    left: 50%;
+    transform: translate(-50%);
+    position: relative;
+
+}
+
+li :not(.login-link):not(.user-status) {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    -webkit-transition-duration: 0.7s;
+}
+
+li a:hover:not(.user-status):not(.signup-link) {
+    background-color: #005e94;
+}
+
+.login-link {
+    background-color: #005e94;
+    float: right;
+}
+
+.login-link:hover {
+    background-color: #0076bb;
+}
+
+.user-status {
+    float: right;
+}
+
+.nav-bar .signup-link {
+    float: right !important;
+}

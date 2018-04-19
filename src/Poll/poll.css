@@ -1,0 +1,98 @@
+input[type=checkbox] + label {
+    display: block;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-bottom: 0.1em;
+}
+  
+input[type=checkbox] {
+    display: none;
+}
+
+  
+input[type=checkbox] + label:before {
+    content: "\2714";
+    border: 0.1em solid #000;
+    border-radius: 0.2em;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    padding-left: 0.2em;
+    padding-bottom: 0.4em;
+    margin-right: 0.6em;
+    vertical-align: bottom;
+    color: transparent;
+    transition: .2s;
+}
+  
+input[type=checkbox] + label:active:before {
+    transform: scale(0);
+}
+  
+input[type=checkbox]:checked + label:before {
+    background-color: #005e94;
+    border-color:#005e94;
+    color: #fff;
+}
+
+.poll-container {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%);
+    padding: 1em;
+    margin: 1em;
+    width: 600px;
+}
+
+.poll-container button {
+    width: 30%;
+    height: 40px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #333;
+    color: 000;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: transparent;
+    font-size: 18px;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.7s;
+    font-weight: 400;
+}
+
+.poll-container button:hover {
+    background: #005e94;
+    color: #fff;
+    border: 1px solid #005e94;
+}
+
+.poll-container .insert-button {
+    margin-right: 0.5em;
+}
+
+.poll-container input {
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-bottom: 1em;
+    font-size: 16px;
+    padding: 0 15px 0 15px;
+    outline: none;
+    font-style: italic;
+}
+
+.poll-container button {
+    margin-bottom: 0.5em;
+}
+
+.poll-container .poll-score {
+    font-size: 1.5em;
+    margin-bottom: 0.8em;
+}
+
+.poll-container h1 {
+    font-weight: 400;
+}
