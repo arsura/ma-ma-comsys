@@ -7,6 +7,7 @@ import Profile from './Profile/profile';
 import Post from './Post/post';
 import SignUp from './Signup/signup';
 import Poll from './Poll/poll';
+import CreatePost from './CreatePost/createpost';
 
 class App extends Component {
   render() {
@@ -21,6 +22,7 @@ class App extends Component {
           <Route path='/post/:id' component={Post} />
           <Route path='/signup' component={SignUp} />
           <Route path='/poll' component={Poll} />
+          <Route path='/createpost' component={CreatePost} />
         </div>
       </Router>
     );

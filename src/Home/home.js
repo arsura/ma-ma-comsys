@@ -10,7 +10,7 @@ class Home extends Component {
             (
                 <div className='authen-complete'>
                     <h1>ยินดีต้อนรับเข้าสู่ระบบคุณ {fakeAuth.userName} </h1> <br />
-                    <button>สร้างเรื่องราวใหม่</button>
+                    <Link to='/createpost'>สร้างเรื่องราวใหม่</Link>
                 </div>
             ) :
             (
