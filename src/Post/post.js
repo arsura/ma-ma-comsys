@@ -108,10 +108,36 @@ class EntryActivity extends React.Component {
 }
 
 class CreatePoll extends React.Component {
+
+    constructor() {
+        super()
+        this.state = {
+            pollStatus: false,
+        }
+        this.createPoll = this.createPoll.bind(this);
+    }
+
+    createPoll() {
+        this.setState({
+            pollStatus: true,
+        })
+    }
+
     render() {
+
+        if (fakeAuth.isAuthenticated === false) {
+            return null;
+        }
+
+        if (this.state.pollStatus) {
+            return (
+                <Poll />
+            );
+        }
+
         return (
             <div className='create-poll'>
-                <button>สร้างโพลสำหรับกิจกรรมนี้</button>
+                <button onClick={this.createPoll}>สร้างโพลสำหรับกิจกรรมนี้</button>
             </div>
         );
     }
@@ -134,7 +160,12 @@ class Comment extends React.Component {
             ],
             like: [
                 5,
-            ]
+            ],
+            userWhoLiked: [
+                {
+                    username: [],
+                }
+            ],
         };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -153,19 +184,43 @@ class Comment extends React.Component {
             postBy: this.state.postBy.concat([fakeAuth.userName]),
             time: this.state.time.concat([new Date().toLocaleString()]),
             like: this.state.like.concat(0),
+            userWhoLiked: this.state.userWhoLiked.concat({username: []}),
         })
-        console.log(this.state.commentData);
+        //console.log(this.state.commentData);
         event.preventDefault();
     }
 
     increaseLike(index) {
+
+        for (let i = 0; i < this.state.userWhoLiked[index].username.length; i++) {
+            if (this.state.userWhoLiked[index].username[i] === fakeAuth.userName) {
+
+                let newLikeList = this.state.like.slice();
+                newLikeList[index] = newLikeList[index] - 1;
+
+                let newUserWhoLiked = this.state.userWhoLiked.slice();
+                delete(newUserWhoLiked[index].username[i]);
+
+                this.setState({
+                    like: newLikeList,
+                    userWhoLiked: newUserWhoLiked,
+                })
+                return;
+            }
+        }
+
         //console.log('like')
         let newLikeList = this.state.like.slice();
         newLikeList[index] = newLikeList[index] + 1;
+
+        let newUserWhoLiked = this.state.userWhoLiked.slice();
+        newUserWhoLiked[index].username = newUserWhoLiked[index].username.concat(fakeAuth.userName);
         //console.log(increase);
         this.setState({
             like: newLikeList,
+            userWhoLiked: newUserWhoLiked,
         })
+        console.log(this.state.userWhoLiked)
     }
 
     render() {
@@ -201,7 +256,7 @@ class Comment extends React.Component {
                                         <div className='content'>
                                             {value}
                                         </div>
-                                        <button className='like' onClick={() => this.increaseLike(index)}>
+                                        <button className='like' disabled={!fakeAuth.isAuthenticated} onClick={() => this.increaseLike(index)}>
                                             {this.state.like[index]} คนเห็นด้วย
                                         </button>
                                     </div>
@@ -227,6 +282,7 @@ class CallFromCreatePost extends React.Component {
                     {this.props.postContent}
                 </p>
                 <EntryActivity />
+                <CreatePoll />
                 <div className='create-by'>สร้างโดย
                 <Link to={`/profile/${'siwakorn'}`}><i> Siwakorn Ruenrit  </i></Link>
                     {new Date().toLocaleString()}

@@ -61,11 +61,16 @@ class Poll extends React.Component {
 
     handlePollSubmit() {
         let newchoiceCount = this.state.choiceCount.slice();
+        let hasChecked = false;
+
         for (let i = 0; i < this.state.isChecked.length; i++) {
             if (this.state.isChecked[i]) {
                 newchoiceCount[i] = newchoiceCount[i] + 1;
+                hasChecked = true;
             }
         }
+
+        if (hasChecked === false) return;
 
         this.setState({
             choiceCount: newchoiceCount,
@@ -89,7 +94,6 @@ class Poll extends React.Component {
         const detailsContent =
             (
                 <div className='poll-container'>
-                    <h1>เปิดเสรีทรงผมนักเรียนไทย</h1>
                     {
                         this.state.pollChoice.map((value, index) => {
                             return (
