@@ -1,4 +1,6 @@
 import React from 'react';
+import { fakeAuth } from '../Login/login';
+import { Link } from 'react-router-dom';
 import './invite.css';
 
 class ShowMiniProfile extends React.Component {
@@ -87,6 +89,7 @@ class Invite extends React.Component {
                 imgSrc: 'https://scontent.fbkk2-3.fna.fbcdn.net/v/t1.0-9/12247004_965778210126949_7717152322951308050_n.jpg?_nc_cat=0&oh=2b9853e71bf04ec695b6ecaac1bb507e&oe=5B60CD75'
             },
         ]
+        const isAuthen = fakeAuth.isAuthenticated;
 
         const clickToShow = this.state.showInvite ?
             (
@@ -111,7 +114,18 @@ class Invite extends React.Component {
             ) :
             (
                 <div className='invite-button'>
-                    <button type='submit' onClick={() => { this.setState({ showInvite: true }) }} >เชิญชวนผู้คนเพื่อเข้าร่วมกับกิจกรรมนี้</button>
+                    {
+                        isAuthen ? 
+                        (
+                            <button type='submit' onClick={() => { this.setState({ showInvite: true }) }} >เชิญชวนผู้คนเพื่อเข้าร่วมกับกิจกรรมนี้</button>
+                        ) : 
+                        (
+                            <Link to='/login'>
+                                <button>คุณสามารถเชิญชวนให้ผู้อื่นเข้าร่วมกับกิจกรรมนี้ได้เพียงแค่เข้าสู่ระบบ</button>
+                            </Link>
+                        )
+                    }
+                    
                 </div>
             );
 
