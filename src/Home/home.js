@@ -29,7 +29,7 @@ class Home extends Component {
                     เพราะถ้าหากเราเป็นประเทศประชาธิปไตยแล้ว ก็ควรให้นักเรียนได้รักษาสิทธิ
                     โดยสามารใช้สิทธิของตนเองได้อย่างเต็มรูปแบบ
                 </div>
-                <Link className='extra' to={`/post/${newsTitle}`}> เพิ่มเติม...</Link>
+                {/*<Link className='extra' to={`/post/${newsTitle}`}> เพิ่มเติม...</Link>*/}
                 <div className='user-post-name'>
                     Siwakorn Ruenrit
                 </div>

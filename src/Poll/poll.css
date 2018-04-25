@@ -92,6 +92,8 @@ input[type=checkbox]:checked + label:before {
     font-size: 1em;
     margin-bottom: 0.8em;
     padding-left: 2em; 
+    background: #afd4e7;
+    border-radius: 5px;
 }
 
 .poll-container h1 {

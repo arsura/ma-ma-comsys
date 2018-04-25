@@ -1,13 +1,12 @@
 .profile-container {
     position: absolute;
     display: block;
-    width: 500px;
+    width: 1000px;
     padding: 0;
     margin: 0;
     top: 5em;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
 }
 
 .profile-container img {
@@ -15,6 +14,43 @@
     height: 300px;
     width: 300px;
     margin: 1em;
+    position: absolute;
+}
+
+.profile-container .info-details {
+    position: absolute;
+    left: 38%;
+}
+
+.profile-container .info-details .real-name {
+    font-size: 3em;
+    font-weight: 300;
+}
+
+.profile-container .info-details .address {
+    font-size: 1.5em;
+    font-weight: 300;
+    opacity: 0.6;
+}
+
+.profile-container .others-details {
+    margin-top: 1.5em;
+    font-weight: 300;
+    border-top: 1px solid rgb(189, 189, 189);
+}
+
+.profile-container .others-details ul {
+    list-style-type: none;
+    padding: 0;
+    font-size: 1.2em;
+}
+
+.profile-container .others-details li span {
+    opacity: 0.5;
+}
+
+.profile-container .others-details li:not(span) {
+    text-align: right;
 }
 
 .profile-container button {
@@ -35,14 +71,4 @@
 
 .profile-container button:hover {
     background: #0075b9;
-}
-
-.profile-container h1{
-    font-weight: 300;
-    margin: 0;
-}
-
-.profile-container h2{
-    font-weight: 300;
-    margin: 0;
 }

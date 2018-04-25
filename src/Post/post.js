@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { fakeAuth } from '../Login/login';
 import Poll from '../Poll/poll';
+import Invite from '../Invite/invite';
 import './post.css';
 
 const Post = ({ match }) => (
+
     <div className='post-container'>
         <div className='title'>
-            <h1>{match.params.id}</h1>
+            {match.params.id}
         </div>
         <img className='post-image' src='https://assets.change.org/photos/2/ab/gf/gEABgFWkjGDxumE-800x450-noPad.jpg?1522729038' alt='' />
         <p>
@@ -26,6 +28,7 @@ const Post = ({ match }) => (
         <br />
         <SocialNetwork />
         <Comment />
+        <Invite />
     </div>
 );
 
@@ -87,8 +90,8 @@ class EntryActivity extends React.Component {
                     this.state.entryComplete ?
                         (
                             <div>
-                            <h3>ตอนนี้มีผู้เข้าร่วมกิจกรรมแล้ว {this.state.entryCount} คน <br />
-                                <i>และคุณเข้าร่วมกับกิจกรรมนี้เรียบร้อยแล้ว</i></h3>
+                                <h3>ตอนนี้มีผู้เข้าร่วมกิจกรรมแล้ว {this.state.entryCount} คน <br />
+                                    <i>และคุณเข้าร่วมกับกิจกรรมนี้เรียบร้อยแล้ว</i></h3>
                             </div>
                         ) :
                         (
@@ -184,7 +187,7 @@ class Comment extends React.Component {
             postBy: this.state.postBy.concat([fakeAuth.userName]),
             time: this.state.time.concat([new Date().toLocaleString()]),
             like: this.state.like.concat(0),
-            userWhoLiked: this.state.userWhoLiked.concat({username: []}),
+            userWhoLiked: this.state.userWhoLiked.concat({ username: [] }),
         })
         //console.log(this.state.commentData);
         event.preventDefault();
@@ -199,7 +202,7 @@ class Comment extends React.Component {
                 newLikeList[index] = newLikeList[index] - 1;
 
                 let newUserWhoLiked = this.state.userWhoLiked.slice();
-                delete(newUserWhoLiked[index].username[i]);
+                delete (newUserWhoLiked[index].username[i]);
 
                 this.setState({
                     like: newLikeList,
@@ -245,7 +248,7 @@ class Comment extends React.Component {
                             return (
                                 <div key={index + value} className='list-item'>
                                     <div className='text-list'>
-                                        <div className='title'>
+                                        <div className='comment-no'>
                                             ความคิดเห็นที่ {index + 1}
                                         </div>
                                         <div className='post-by'>

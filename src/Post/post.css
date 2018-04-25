@@ -11,6 +11,19 @@
     transform: translate(-50%);
 }
 
+.post-container .title {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+    margin: 0.5em;
+}
+
+.post-container p {
+    font-weight: 300;
+    opacity: 0.6;
+    font-size: 1.1em;
+}
+
 .post-container .post-image {
     position: relative;
     left: 50%;
@@ -21,7 +34,6 @@
     width: 100%;
     margin-top: 3em;
 }
-
 .comment-textarea textarea {   
     border: 1px solid #DDDDDD;
     border-radius: 3px 3px 3px 3px;
@@ -108,7 +120,7 @@ textarea::-webkit-input-placeholder {
     padding: 0px 0px 10px 0px
 }
 
-.text-list .title {
+.text-list .comment-no {
     font-weight: 300;
     opacity: 0.5;
     font-size: 16px;
