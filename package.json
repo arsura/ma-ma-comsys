@@ -2,7 +2,7 @@
   "name": "term-project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://arsura.github.io/ma-ma-comsys",
+  "homepage": "https://arsura.github.io/ma-ma-comsys/",
   "dependencies": {
     "gh-pages": "^1.1.0",
     "react": "^16.3.1",
