@@ -18,7 +18,7 @@ const fakeAuth = {
 
 const Logout = () => {
     fakeAuth.signout();
-    return <Redirect to={'/'} />;
+    return <Redirect to='/' />;
 }
 
 class Login extends React.Component {

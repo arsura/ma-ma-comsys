@@ -23,7 +23,7 @@ class SignUp extends React.Component {
 
         if (this.state.redirect) {
             console.log(this.state.redirect);
-            return <Redirect to={'/'} />;
+            return <Redirect to='/' />;
         }
 
         return (
