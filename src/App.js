@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+import { Router, Route, Link, Switch } from 'react-router-dom';
 import { Login, Logout } from './Login/login';
 import Home from './Home/home';
 import NavBar from './NavBar/navbar'
@@ -12,21 +12,19 @@ import CreatePost from './CreatePost/createpost';
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        <Switch>
-          <div className='container'>
-            <NavBar />
-            <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/logout' component={Logout} />
-            <Route exact path='/profile/:id' component={Profile} />
-            <Route exact path='/post/:id' component={Post} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/poll:id' component={Poll} />
-            <Route exact path='/createpost' component={CreatePost} />
-          </div>
-        </Switch>
-      </BrowserRouter>
+      <Router>
+        <div className='container'>
+          <NavBar />
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/logout' component={Logout} />
+          <Route exact path='/profile/:id' component={Profile} />
+          <Route exact path='/post/:id' component={Post} />
+          <Route exact path='/signup' component={SignUp} />
+          <Route exact path='/poll:id' component={Poll} />
+          <Route exact path='/createpost' component={CreatePost} />
+        </div>
+      </Router>
     );
   }
 }
