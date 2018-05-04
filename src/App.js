@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import { Login, Logout } from './Login/login';
 import Home from './Home/home';
 import NavBar from './NavBar/navbar'
@@ -12,7 +12,8 @@ import CreatePost from './CreatePost/createpost';
 class App extends Component {
   render() {
     return (
-      <Router>
+      <BrowserRouter>
+        <Switch>
           <div className='container'>
             <NavBar />
             <Route exact path='/' component={Home} />
@@ -24,7 +25,8 @@ class App extends Component {
             <Route exact path='/poll:id' component={Poll} />
             <Route exact path='/createpost' component={CreatePost} />
           </div>
-      </Router>
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
