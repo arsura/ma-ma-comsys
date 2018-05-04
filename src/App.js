@@ -15,7 +15,7 @@ class App extends Component {
       <Router>
         <div className='container'>
           <NavBar />
-          <Route exact path='/' component={Home} />
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
           <Route path='/login' component={Login} />
           <Route path='/logout' component={Logout} />
           <Route path='/profile/:id' component={Profile} />
