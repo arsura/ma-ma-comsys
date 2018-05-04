@@ -13,17 +13,17 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className='container'>
-          <NavBar />
-          <Route exact path={`${process.env.PUBLIC_URL}/`} component={Home} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/logout' component={Logout} />
-          <Route exact path='/profile/:id' component={Profile} />
-          <Route exact path='/post/:id' component={Post} />
-          <Route exact path='/signup' component={SignUp} />
-          <Route exact path='/poll:id' component={Poll} />
-          <Route exact path='/createpost' component={CreatePost} />
-        </div>
+          <div className='container'>
+            <NavBar />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/logout' component={Logout} />
+            <Route exact path='/profile/:id' component={Profile} />
+            <Route exact path='/post/:id' component={Post} />
+            <Route exact path='/signup' component={SignUp} />
+            <Route exact path='/poll:id' component={Poll} />
+            <Route exact path='/createpost' component={CreatePost} />
+          </div>
       </Router>
     );
   }
