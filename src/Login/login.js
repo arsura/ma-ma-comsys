@@ -30,6 +30,7 @@ class Login extends React.Component {
             password: '',
             redirectToReferrer: false,
             isInvalid: false,
+            persons: []
         };
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -54,19 +55,31 @@ class Login extends React.Component {
 
         var username = this.state.username;
         var password = this.state.password;
-        if (username === 'siwakorn' && password === '123456') {
-            //console.log('Login Complete');
-            fakeAuth.userName = this.state.username;
-            fakeAuth.authenticate(() => {
-                this.setState({ redirectToReferrer: true });
-            });
+
+        var user = {
+            "username": username,
+            "password": password
         }
-        else {
-            //console.log('Invalid Username or Password')
-            this.setState({
-                isInvalid: true,
-            })
-        }
+
+        fetch('http://localhost:8080/auth', {
+            method: 'POST',
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then(res => {
+            if (res.status === 200) {
+                fakeAuth.userName = this.state.username;
+                fakeAuth.authenticate(() => {
+                    this.setState({ redirectToReferrer: true });
+                });
+            }
+            else {
+                this.setState({
+                    isInvalid: true,
+                })
+            }
+        })
     }
     
     handleKeyPress(event) {
@@ -97,6 +110,7 @@ class Login extends React.Component {
                 <Link className="forget-pass" to="">ลืมรหัสผ่าน</Link>
                 <button onClick={this.handleSubmit}>เข้าสู่ระบบ</button>
             </div>
+            
         );
     }
 }
