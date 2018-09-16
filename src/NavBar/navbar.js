@@ -15,7 +15,7 @@ const NavBar = () => {
             <div className="nav-bar" >
                 <ul>
                     <li>
-                        <Link to='/ma-ma-comsys'>หน้าหลัก</Link>
+                        <Link to='/'>หน้าหลัก</Link>
                     </li>
                     <li>
                         <Link className='login-link' to='/logout'>ออกจากระบบ</Link>
@@ -31,7 +31,7 @@ const NavBar = () => {
             <div className="nav-bar" >
                 <ul>
                     <li>
-                        <Link to='/ma-ma-comsys'>หน้าหลัก</Link>
+                        <Link to='/'>หน้าหลัก</Link>
                     </li>
                     <li>
                         <Link className='login-link' to='/login'>เข้าสู่ระบบ</Link>
